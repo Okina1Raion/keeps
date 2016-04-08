@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Keeps</title>
+</head>
+<script type="text/javascript" href="script.js">
+
+	function HidenMenu(){
+		elem = document.getElementById("menu");
+		if(elem.style.display=="none"){
+			elem.style.display = "";
+		}else{
+			elem.style.display = "none";
+		}
+	}
+	function start()
+	{
+		document.getElementById("menu").style.display="none";
+	}
+	function blink(i)
+	{
+		var img = document.getElementById("logoButton");
+		if(i==1)
+		{
+			img.src = "logoB.png";
+		}
+		if(i==0)
+		{
+			img.src = "logo.png";
+		}
+
+	}
+</script>
+<body onload='start()'>
+<header id="header">
+	<div style="text-align: left; text-align: top;" >
+		<img src="logo.png" onclick="HidenMenu()" id="logoButton" onmouseover="blink(1)" onmouseout="blink(0)">
+	</div>
+</header>
+<div id="menu">
+</div>
+<div id="content">
+	Content	
+</div>
+
+<!-- <form method="POST" action="script.php">
+	Введите Имя:
+	<br>
+	<input type="text" name="name">
+	<input type="submit" id="submit">
+</form> -->
+
+</body>
+</html>
