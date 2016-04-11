@@ -1,18 +1,26 @@
 <?
-$user=$_POST['name'];
-if(isset($_POST['submit'])){
-$hostname = "localhost"; 
-$username = "root"; 
-$password = ""; 
-$dbName = "DB1"; 
-$userstable = "123";
+$connection = new MongoClient();
+$db = $connection->Keeps;
+$collection = $db->Persons;
 
-mysql_connect($hostname,$username,$password) OR DIE("Не могу создать соединение "); 
-mysql_select_db($dbName) or die(mysql_error()); 
-$query = "INSERT INTO $userstable VALUES('$name')";
-mysql_query($query) or die(mysql_error());
-$q2 =mysql_query("SELECT * users WHERE login='$user'");
-$arr= mysql_fetch_array($q2);
-  echo $arr['login']." Hi";
+$user = array( 
+$login = $_POST['login'],
+$name = $_POST['name'],
+$secondName = $_POST['secondName'],
+$surname = $_POST['surname'],
+$password = md5($_POST['password'])
+);
+
+$filter = array("0" => $login);
+
+$finder = $collection -> findOne($filter);
+if(empty($finder)){
+$collection->insert($user);
+echo "Пользователь добавлен";
+}else{
+	echo "Пользователь уже существует";
 }
+
+
+$connection->close();
 ?>
