@@ -10,20 +10,27 @@
 </script>
 <body>
 <header id="header">
-	<div style="text-align: left; text-align: top;" >
-		<img src="logo.png" id="logoButton">
-	</div>
+		<img src="logo.png" id="logoButton" style="text-align: left;">
+	<form id="logining" style="text-align: top; text-align: right; display: block;" method="POST" action="login.php">
+		<input placeholder="Login" required="" name="login" class="header"></input><br>
+		<input placeholder="Password" type="password" name="password" required="" class="header"></input><br>
+		<input type="submit" value="LogIn" class="header"></input>
+	</form>
 </header>
 <center>
-	<input style="padding-left: 10px;" placeholder="Rome..." id="find"></input>
+	<div class="Reg" > 
+	Registration:
+	<form id="logining" method="POST" action="script.php">
+		<input placeholder="Login" name="login" class="Reg" required=""></input><br>
+		<input placeholder="Name" name="name" class="Reg" required=""></input><br>
+		<input placeholder="Second Name" name="secondName" class="Reg" required=""></input><br>
+		<input placeholder="Surname" name="surname" class="Reg" required=""></input><br>
+		<input placeholder="Password" name="password" class="Reg" type="password" required=""></input><br>
+		<input placeholder="Password Again" name="password2" class="Reg" type="password" required=""></input><br>
+		<input type="submit" class="Reg" value="SignUp"></input>
+	<div id="NO"></div>
+	</form>
+	</div>
 </center>
-
-<!-- <form method="POST" action="script.php">
-	Введите Имя:
-	<br>
-	<input type="text" name="name">
-	<input type="submit" id="submit">
-</form> -->
-
 </body>
 </html>
